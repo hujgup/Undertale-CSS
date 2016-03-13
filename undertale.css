@@ -1,0 +1,125 @@
+/*
+Font Credits:
+	Determination (Mono/Sans): https://www.behance.net/gallery/31268855/Determination-Better-Undertale-Font
+	Monster Friend (Fore/Back): https://www.behance.net/gallery/31378523/Monster-Friend-Undertale-Logo-Font
+	MNC: [WARNING: I changed the name of this font because the original was NSFW, and thus not very professional - go to link at own discresion] http://auntiepixelante.com/?p=606
+	Mercy: http://maxigamer.deviantart.com/art/MERCY-Font-the-UNDERTALE-font-for-battle-buttons-590779512
+*/
+@font-face {
+	font-family:"Determination Mono";
+	src:url("dt mono/DeterminationMonoWeb.eot?") format("eot"),url("dt mono/DeterminationMonoWeb.woff") format("woff"),url("dt mono/DeterminationMonoWeb.otf") format("opentype");
+}
+@font-face {
+	font-family:"Determination Sans";
+	src:url("dt sans/DeterminationSansWeb.eot?") format("eot"),url("dt sans/DeterminationSansWeb.woff") format("woff"),url("dt sans/DeterminationSansWeb.otf") format("opentype");
+}
+@font-face {
+	font-family:MNC;
+	src:url("mnc/MNC.eot?") format("eot"),url("mnc/MNC.woff") format("woff"),url("mnc/MNC.otf") format("opentype");
+}
+@font-face {
+	font-family:"Monster Friend Back";
+	src:url("Logo/back/MonsterFriendBack.eot?") format("eot"),url("Logo/back/MonsterFriendBack.woff") format("woff"),url("Logo/back/MonsterFriendBack.otf") format("opentype");
+}
+@font-face {
+	font-family:"Monster Friend Fore";
+	src:url("Logo/fore/MonsterFriendFore.eot?") format("eot"),url("Logo/fore/MonsterFriendFore.woff") format("woff"),url("Logo/fore/MonsterFriendFore.otf") format("opentype");
+}
+@font-face {
+	font-family:Mercy;
+	src:url("mercy/MERCY.eot?") format("eot"),url("mercy/MERCY.woff") format("woff"),url("mercy/MERCY.otf") format("opentype");
+}
+
+.ut-wrapper {
+	/* Surround the body of UT text with this class */
+	background-color:black;
+	color:white;
+	font-size:20px;
+}
+.ut-title-parent {
+	/* Put on a wrapper div around the heading element - window resize handling */
+	position:relative;
+}
+.ut-title {
+	/* For heading elements */
+	/* On element: specify "data-text" and "data-hearts" attributes */
+	color:#888;
+	font-family:"Monster Friend Back","Monster Friend Fore",Arial,sans-serif;
+	font-size:2.35em;
+}
+.ut-title::before {
+	color:#e90111;
+	font-family:"Monster Friend Fore","Monster Friend Back",Arial,sans-serif;
+	content:attr(data-hearts);
+	position:absolute;
+	left:0;
+	top:0;
+}
+.ut-title::after {
+	color:white;
+	font-family:"Monster Friend Fore","Monster Friend Back",Arial,sans-serif;
+	content:attr(data-text);
+	position:absolute;
+	left:0;
+	top:0;
+}
+.ut-stats {
+	/* For text that should resemble the UT stat screen during combat (like player name) */
+	color:white;
+	font-family:MNC,Broadway,"Arial Black",Arial,sans-serif;
+	font-size:0.8em;
+}
+.ut-dialogue {
+	/* For text that should resemble UT dialogue */
+	color:white;
+	font-family:"Determination Mono","Determination Sans","8-bit Operator","FixedSys","Courier New",monospace;
+	font-size:1em;
+}
+.ut-menu {
+	/* For text that should resemble UT menus (like inventory) */
+	color:white;
+	font-family:"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
+	font-size:1em;
+}
+.ut-action {
+	/* For text that should resemble the UT combat options */
+	color:white;
+	font-family:Mercy,"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
+}
+.ut-button {
+	/* For buttons that should resemble the UT combat options (FIGHT, ACT, ITEM, MERCY) */
+	display:inline-block;
+	text-transform:uppercase;
+	text-align:right;
+	font-family:Mercy,"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
+	font-size:1.5em;
+	border:0.1em solid;
+	border-color:#f68228;
+	text-decoration:none;
+	padding:0.1em;
+	margin-top:initial;
+	margin-bottom:0.1em;
+}
+.ut-button:link, .ut-button:visited, .ut-button:hover, .ut-button:active {
+	text-decoration:none;
+}
+.ut-button:hover, .ut-button:active {
+	border-color:#fff434;
+}
+
+.ut-heading {
+	/* For minor heading elements (not the title) */
+	font-size:1.5em;
+}
+.ut-orange, .ut-link, .ut-link:link, .ut-link:visited {
+	/* orange: For any orange text, link: for hyperlinks */
+	color:#f68228;
+}
+.ut-yellow, .ut-link:hover, .ut-link:active {
+	/* yellow: For any yellow text, link: for hyperlinks */
+	color:#fff434;
+}
+.ut-chara {
+	/* Where are the knives. */
+	color:red;
+}
