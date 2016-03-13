@@ -1,5 +1,7 @@
 <h1>Undertale CSS Collection</h1>
 
-<p>Paste this anywhere, then in your HTML include the following line somewhere in the &lt;head&gt; section:<br />
+<p>This stylesheet, and its accompanying font files, will allow you to make your webpages look thematically related to Undertale, through the use of fonts and colour schemes. View the demo file in a browser for an example.</p>
+<h2>Instructions for Use</h2>
+<p>Somewhere in your HTML's &lt;head&gt; tag, include a reference to the stylesheet like to:<br />
 &lt;link rel="stylesheet" href="path/to/undertale.css" /&gt;<br />
-Add type="text/css" if you're not using HTML5.</p>
+If you are not using HTML5, the additional attribute type="text/css" may be required.</p>
