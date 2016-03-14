@@ -1,0 +1,3 @@
+where exactly is heart in active
+figure out how to get the animated bg to the save btn
+	(maybe just rip it from a video?)

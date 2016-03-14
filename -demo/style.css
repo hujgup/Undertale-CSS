@@ -1,0 +1,7 @@
+.inline-list {
+	list-style-type:none;
+	padding:initial;
+}
+.inline-list > li {
+	display:inline;
+}

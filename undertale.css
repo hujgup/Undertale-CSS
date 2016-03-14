@@ -29,6 +29,14 @@ Font Credits:
 	font-family:Mercy;
 	src:url("mercy/MERCY.eot?") format("eot"),url("mercy/MERCY.woff") format("woff"),url("mercy/MERCY.otf") format("opentype");
 }
+@font-face {
+	font-family:"Crypt of Tomorrow";
+	src:url("crypt/CryptOfTomorrow.ttf"); /* todo */
+}
+@font-face {
+	font-family:Hachicro;
+	src:url("hachicro/hachicro.ttf"); /* todo */
+}
 
 .ut-wrapper {
 	/* Surround the body of UT text with this class */
@@ -63,36 +71,53 @@ Font Credits:
 	left:0;
 	top:0;
 }
-.ut-stats {
+/* todo game over text */
+.ut-title-basic-fore {
+	/* For font access */
+	font-family:"Monster Friend Fore","Monster Friend Back",Arial,sans-serif;
+}
+.ut-title-basic-back {
+	/* For font access */
+	font-family:"Monster Friend Back","Monster Friend Fore",Arial,sans-serif;
+}
+.ut-stats, .ut-stats-full {
 	/* For text that should resemble the UT stat screen during combat (like player name) */
 	color:white;
-	font-family:MNC,Broadway,"Arial Black",Arial,sans-serif;
 	font-size:0.8em;
+}
+.ut-stats {
+	font-family:MNC,"Crypt of Tomorrow",Broadway,"Arial Black",Arial,sans-serif;
+}
+.ut-stats-full {
+	font-family:"Crypt of Tomorrow",MNC,Broadway,"Arial Black",Arial,sans-serif;
 }
 .ut-dialogue {
 	/* For text that should resemble UT dialogue */
 	color:white;
-	font-family:"Determination Mono","Determination Sans","8-bit Operator","FixedSys","Courier New",monospace;
+	font-family:"Determination Mono","Determination Sans","8-bit Operator","FixedSys","Terminal Vector","Courier New",monospace;
 	font-size:1em;
 }
 .ut-menu {
 	/* For text that should resemble UT menus (like inventory) */
 	color:white;
-	font-family:"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
+	font-family:"Determination Sans","Determination Mono","8-bit Operator","FixedSys","Terminal Vector",Arial,sans-serif;
 	font-size:1em;
+}
+.ut-damage {
+	/* For text that should resemble the damage text */
+	color:white;
+	font-family:Hachiro,"OCR A Extended","OCR A","Goudy Stout",Impact,Arial,sans-serif;
 }
 .ut-action {
 	/* For text that should resemble the UT combat options */
 	color:white;
-	font-family:Mercy,"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
+	font-family:Mercy,"Determination Sans","Determination Mono","8-bit Operator","FixedSys","Terminal Vector",Arial,sans-serif;
 }
-.ut-button {
+.ut-button, .ut-button-small {
 	/* For buttons that should resemble the UT combat options (FIGHT, ACT, ITEM, MERCY) */
 	display:inline-block;
 	text-transform:uppercase;
 	text-align:right;
-	font-family:Mercy,"Determination Sans","Determination Mono","8-bit Operator","FixedSys",Arial,sans-serif;
-	font-size:1.5em;
 	border:0.1em solid;
 	border-color:#f68228;
 	text-decoration:none;
@@ -100,11 +125,18 @@ Font Credits:
 	margin-top:initial;
 	margin-bottom:0.1em;
 }
-.ut-button:link, .ut-button:visited, .ut-button:hover, .ut-button:active {
+.ut-button:link, .ut-button:visited, .ut-button:hover, .ut-button:active, .ut-button-small:link, .ut-button-small:visited, .ut-button-small:hover, .ut-button-small:active {
 	text-decoration:none;
 }
-.ut-button:hover, .ut-button:active {
+.ut-button:hover, .ut-button:active, .ut-button-small:hover, .ut-button-small:active {
 	border-color:#fff434;
+}
+.ut-button {
+	font-size:1.5em;
+	content:
+}
+.ut-button-small {
+	font-size:1em;
 }
 
 .ut-heading {
