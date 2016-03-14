@@ -7,35 +7,35 @@ Font Credits:
 */
 @font-face {
 	font-family:"Determination Mono";
-	src:url("dt mono/DeterminationMonoWeb.eot?") format("eot"),url("dt mono/DeterminationMonoWeb.woff") format("woff"),url("dt mono/DeterminationMonoWeb.otf") format("opentype");
+	src:url("fonts/dt mono/DeterminationMonoWeb.eot?") format("eot"),url("fonts/dt mono/DeterminationMonoWeb.woff") format("woff"),url("fonts/dt mono/DeterminationMonoWeb.otf") format("opentype");
 }
 @font-face {
 	font-family:"Determination Sans";
-	src:url("dt sans/DeterminationSansWeb.eot?") format("eot"),url("dt sans/DeterminationSansWeb.woff") format("woff"),url("dt sans/DeterminationSansWeb.otf") format("opentype");
+	src:url("fonts/dt sans/DeterminationSansWeb.eot?") format("eot"),url("fonts/dt sans/DeterminationSansWeb.woff") format("woff"),url("fonts/dt sans/DeterminationSansWeb.otf") format("opentype");
 }
 @font-face {
 	font-family:MNC;
-	src:url("mnc/MNC.eot?") format("eot"),url("mnc/MNC.woff") format("woff"),url("mnc/MNC.otf") format("opentype");
+	src:url("fonts/mnc/MNC.eot?") format("eot"),url("fonts/mnc/MNC.woff") format("woff"),url("fonts/mnc/MNC.otf") format("opentype");
 }
 @font-face {
 	font-family:"Monster Friend Back";
-	src:url("Logo/back/MonsterFriendBack.eot?") format("eot"),url("Logo/back/MonsterFriendBack.woff") format("woff"),url("Logo/back/MonsterFriendBack.otf") format("opentype");
+	src:url("fonts/Logo/back/MonsterFriendBack.eot?") format("eot"),url("fonts/Logo/back/MonsterFriendBack.woff") format("woff"),url("fonts/Logo/back/MonsterFriendBack.otf") format("opentype");
 }
 @font-face {
 	font-family:"Monster Friend Fore";
-	src:url("Logo/fore/MonsterFriendFore.eot?") format("eot"),url("Logo/fore/MonsterFriendFore.woff") format("woff"),url("Logo/fore/MonsterFriendFore.otf") format("opentype");
+	src:url("fonts/Logo/fore/MonsterFriendFore.eot?") format("eot"),url("fonts/Logo/fore/MonsterFriendFore.woff") format("woff"),url("fonts/Logo/fore/MonsterFriendFore.otf") format("opentype");
 }
 @font-face {
 	font-family:Mercy;
-	src:url("mercy/MERCY.eot?") format("eot"),url("mercy/MERCY.woff") format("woff"),url("mercy/MERCY.otf") format("opentype");
+	src:url("fonts/mercy/MERCY.eot?") format("eot"),url("fonts/mercy/MERCY.woff") format("woff"),url("fonts/mercy/MERCY.otf") format("opentype");
 }
 @font-face {
 	font-family:"Crypt of Tomorrow";
-	src:url("crypt/CryptOfTomorrow.ttf"); /* todo */
+	src:url("fonts/crypt/CryptOfTomorrow.ttf"); /* todo */
 }
 @font-face {
 	font-family:Hachicro;
-	src:url("hachicro/hachicro.ttf"); /* todo */
+	src:url("fonts/hachicro/hachicro.ttf"); /* todo */
 }
 
 .ut-wrapper {
