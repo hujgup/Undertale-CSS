@@ -5,6 +5,9 @@ Font Credits:
 	MNC: [WARNING: I changed the name of this font because the original was NSFW, and thus not very professional - go to link at own discresion] http://auntiepixelante.com/?p=606
 	Mercy: http://maxigamer.deviantart.com/art/MERCY-Font-the-UNDERTALE-font-for-battle-buttons-590779512
 */
+/*
+	src:url("fonts/x/x.eot?") format("eot"),url("fonts/x/x.woff") format("woff"),url("fonts/x/x.otf") format("opentype");
+*/
 @font-face {
 	font-family:"Determination Mono";
 	src:url("fonts/dt mono/DeterminationMonoWeb.eot?") format("eot"),url("fonts/dt mono/DeterminationMonoWeb.woff") format("woff"),url("fonts/dt mono/DeterminationMonoWeb.otf") format("opentype");
@@ -31,11 +34,11 @@ Font Credits:
 }
 @font-face {
 	font-family:"Crypt of Tomorrow";
-	src:url("fonts/crypt/CryptOfTomorrow.ttf"); /* todo */
+	src:url("fonts/crypt/CryptOfTomorrow.eot?") format("eot"),url("fonts/crypt/CryptOfTomorrow.woff") format("woff"),url("fonts/crypt/CryptOfTomorrow.otf") format("opentype");
 }
 @font-face {
 	font-family:Hachicro;
-	src:url("fonts/hachicro/hachicro.ttf"); /* todo */
+	src:url("fonts/hachicro/hachicro.eot?") format("eot"),url("fonts/hachicro/hachicro.woff") format("woff"),url("fonts/hachicro/hachicro.otf") format("opentype");
 }
 
 .ut-wrapper {
