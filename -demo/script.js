@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded",function() {
-	UndertaleButtons.presets.sprites.fight(document.getElementById("fight"));
-	UndertaleButtons.presets.sprites.save(document.getElementById("save"));
-	UndertaleButtons.presets.sprites.item(document.getElementById("item"));
-	UndertaleButtons.presets.sprites.mercy(document.getElementById("mercy"));
+	Undertale.presets.sprites.fight(document.getElementById("fight"));
+	Undertale.presets.sprites.save(document.getElementById("save"));
+	Undertale.presets.sprites.item(document.getElementById("item"));
+	Undertale.presets.sprites.mercy(document.getElementById("mercy"));
 });

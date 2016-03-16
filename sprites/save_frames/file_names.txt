@@ -1,5 +1,0 @@
-text + border:
-	frame_[NUMBER].png
-star:
-	frame_star_[NUMBER].png
-[NUMBER] is zero-indexed
