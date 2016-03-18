@@ -6,9 +6,9 @@ var utjs_getRoot = function() {
 var utjs_root = utjs_getRoot();
 
 function RGBColor(r,g,b) {
-	this.red = r;
-	this.green = g;
-	this.blue = b;
+	this.red = Math.floor(r);
+	this.green = Math.floor(g);
+	this.blue = Math.floor(b);
 	this.equals = function(rgbCol) {
 		return this.red === rgbCol.red && this.green === rgbCol.green && this.blue === rgbCol.blue;
 	};
@@ -19,7 +19,7 @@ function HSVColor(h,s,v) {
 	this.value = v;
 	this.toRGB = function() {
 		var chroma = this.value*this.saturation;
-		var hue = hue%360;
+		var hue = this.hue%360;
 		if (hue < 0) {
 			hue += 360;
 		}
@@ -44,8 +44,8 @@ function HSVColor(h,s,v) {
 			b = chroma;
 			r = x;
 		} else {
-			r = chroma;
 			b = x;
+			r = x;
 		}
 		var m = this.value - chroma;
 		r += m;
@@ -143,9 +143,6 @@ function UndertaleTemplate() {
 		}
 	};
 	var _createOverlay = function(parent) {
-/*
-		var res = document.createElement("img");
-*/
 		var res = document.createElement("canvas");
 		res.style.position = "absolute";
 		res.style.left = "0";
@@ -193,39 +190,38 @@ function UndertaleTemplate() {
 				_preloadImage(_this.images.active.mercy);
 				_buttonSprites(ele,_this.images.mercy,_this.images.active.mercy,"MERCY");
 			},
-			save: function(ele) {
+			save: function(ele,frameRate) {
+				frameRate = typeof frameRate === "number" ? frameRate : 60;
+				var huePerSecond = 10800/42;
+				var huePerFrame = huePerSecond/frameRate;
+
 				var imgSave = _preloadImage(_this.images.save);
-				//_preloadImage(_this.images.heart);
 				_preloadImage(_this.images.active.save);
 				var imgSaveActive = _preloadImage(_this.images.active.saveEmpty);
-				//_preloadSaveFrames();
 				ele.style.position = "relative";
 				var save = _buttonSprites(ele,_this.images.save,_this.images.active.save,"SAVE");
 				var overlay = _createOverlay(ele);
-				//var overlayFore = _createOverlay(ele);
 				var ctx = overlay.getContext("2d");
-				//var foreCtx = overlayFore.getContext("2d");
 				var frame = 0;
 				var col = new HSVColor(0,0.62,0.76);
-				var increment = 360/42;
+				var increment = huePerFrame;
 				var width = 1;
 				var height = 1;
+
 				var animate = function() {
-					if (height === 0) {
-						height = ele.children[0].offsetHeight;
-						if (height !== 0) {
-							var offset = (ele.offsetHeight - height + (ele.children[0].getBoundingClientRect().bottom - ele.getBoundingClientRect().bottom))+"px";
-							overlay.style.top = offset;
-							//overlayFore.style.top = offset;
-							width = ele.children[0].offsetWidth;
-							var cssWidth = width+"px";
-							overlay.style.width = cssWidth;
-							//overlayFore.style.width = cssWidth;
-						}
+					height = ele.children[0].offsetHeight;
+					if (height !== 0) {
+						var offset = (ele.offsetHeight - height + (ele.children[0].getBoundingClientRect().bottom - ele.getBoundingClientRect().bottom))+"px";
+						overlay.style.top = offset;
+						width = ele.children[0].offsetWidth;
+						overlay.width = width;
+						overlay.height = height;
+					} else {
+						height = 1;
 					}
 					try {
 						ctx.clearRect(0,0,width,height);
-						ctx.drawImage(save.active ? imgSaveActive : imgSave,0,0,width,height,0,0,width,height);
+						ctx.drawImage(save.active ? imgSaveActive : imgSave,0,0,width,height);
 						var imgData = ctx.getImageData(0,0,width,height);
 						var replaceMe = new RGBColor(195,195,195);
 						var rgb = col.toRGB();
@@ -234,24 +230,25 @@ function UndertaleTemplate() {
 							testCol = new RGBColor(imgData.data[i],imgData.data[i + 1],imgData.data[i + 2]);
 							if (testCol.equals(replaceMe)) {
 								imgData.data[i] = rgb.red;
-								imgData.data[i] = rgb.green;
-								imgData.data[i] = rgb.blue;
+								imgData.data[i + 1] = rgb.green;
+								imgData.data[i + 2] = rgb.blue;
 							}
 						}
 						ctx.putImageData(imgData,0,0);
 					} catch (e) {
 						// Cross-origin data on canvas, just show the uncoloured version
 					}
-/*
-					overlayBack.src = _saveFrames.global[frame];
-					overlayFore.src = _saveFrames.star[frame];
-					overlayFore.style.display = save.active ? "none" : "initial";
-*/
 					col.hue += increment;
 					frame = (++frame)%_saveFrames.global.length;
 				};
-				setInterval(animate,1000/30);
-				animate();
+
+				var timer = setInterval(function() {
+					animate();
+					if (width !== 1) {
+						clearInterval(timer);
+						setInterval(animate,1000/frameRate);
+					}
+				},1);
 			}
 		},
 		css: {
