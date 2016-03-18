@@ -12,6 +12,9 @@ function RGBColor(r,g,b) {
 	this.equals = function(rgbCol) {
 		return this.red === rgbCol.red && this.green === rgbCol.green && this.blue === rgbCol.blue;
 	};
+	this.toString = function() {
+		return "rgb("+this.red+","+this.green+","+this.blue+")";
+	};
 }
 function HSVColor(h,s,v) {
 	this.hue = h;
@@ -56,6 +59,9 @@ function HSVColor(h,s,v) {
 		g *= cnv;
 		b *= cnv;
 		return new RGBColor(r,g,b);
+	};
+	this.toString = function() {
+		return this.toRGB().toString();
 	};
 }
 
@@ -204,51 +210,49 @@ function UndertaleTemplate() {
 				var ctx = overlay.getContext("2d");
 				var frame = 0;
 				var col = new HSVColor(0,0.62,0.76);
+				var replaceMe = new RGBColor(195,195,195);
 				var increment = huePerFrame;
-				var width = 1;
-				var height = 1;
+				var width = null;
+				var height = null;
 
 				var animate = function() {
-					height = ele.children[0].offsetHeight;
-					if (height !== 0) {
-						var offset = (ele.offsetHeight - height + (ele.children[0].getBoundingClientRect().bottom - ele.getBoundingClientRect().bottom))+"px";
-						overlay.style.top = offset;
-						width = ele.children[0].offsetWidth;
-						overlay.width = width;
-						overlay.height = height;
-					} else {
-						height = 1;
-					}
-					try {
-						ctx.clearRect(0,0,width,height);
-						ctx.drawImage(save.active ? imgSaveActive : imgSave,0,0,width,height);
-						var imgData = ctx.getImageData(0,0,width,height);
-						var replaceMe = new RGBColor(195,195,195);
-						var rgb = col.toRGB();
-						var testCol;
-						for (var i = 0; i < imgData.data.length; i += 4) {
-							testCol = new RGBColor(imgData.data[i],imgData.data[i + 1],imgData.data[i + 2]);
-							if (testCol.equals(replaceMe)) {
-								imgData.data[i] = rgb.red;
-								imgData.data[i + 1] = rgb.green;
-								imgData.data[i + 2] = rgb.blue;
-							}
+					if (height === null) {
+						height = ele.children[0].offsetHeight;
+						if (height === 0) {
+							height = null;
+						} else {
+							width = ele.children[0].offsetWidth;
+							overlay.width = width;
+							overlay.height = height;
 						}
-						ctx.putImageData(imgData,0,0);
-					} catch (e) {
-						// Cross-origin data on canvas, just show the uncoloured version
 					}
-					col.hue += increment;
-					frame = (++frame)%_saveFrames.global.length;
+					if (height !== null) {
+						overlay.style.top = (ele.offsetHeight - height + (ele.children[0].getBoundingClientRect().bottom - ele.getBoundingClientRect().bottom))+"px";
+						try {
+							// Credit to http://stackoverflow.com/a/16228281
+							ctx.save();
+							ctx.clearRect(0,0,width,height);
+							ctx.drawImage(save.active ? imgSaveActive : imgSave,0,0,width,height);
+							ctx.fillStyle = col.toString();
+							ctx.globalCompositeOperation = "source-in";
+							ctx.fillRect(0,0,width,height);
+							ctx.restore();
+						} catch (e) {
+							// Cross-origin data on canvas, just show the uncoloured version
+						}
+						col.hue += increment;
+						frame = (++frame)%_saveFrames.global.length;
+					}
 				};
-
-				var timer = setInterval(function() {
+				var initialAnimate = function() {
 					animate();
-					if (width !== 1) {
+					if (width !== null) {
 						clearInterval(timer);
 						setInterval(animate,1000/frameRate);
 					}
-				},1);
+				};
+				var timer = setInterval(initialAnimate,0);
+				initialAnimate();
 			}
 		},
 		css: {
