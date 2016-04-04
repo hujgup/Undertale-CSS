@@ -13,13 +13,82 @@
 		</header>
 		<main>
 			<section>
-				<p class="ut-x">[NAME]</p>
-				<p>[BRIEF DESC]</p>
-				<nav class="ut-stats">
-					<ul>
-						<li><a class="ut-link" href="x">x</a></li>
-					</ul>
-				</nav>
+				<h2 class="ut-title-basic-fore">Monster Friend</h2>
+				<p>Monster Friend is the font "used" in the title for Undertale. Since the title is a pre-rendered image, this font cas created based on the style of the image.</p>
+				<p class="ut-title-basic-fore">It looks like this in its basic foreground form.</p>
+				<p class="ut-title-basic-back">It looks like this in its basic background form.</p>
+				<div class="ut-title-parent">
+					<p class="ut-title" data-text="It looks like this in its complex form.">It looks like this in its complex form.</p>
+				</div>
+				<p>Certain letters, when capitalized, have hearts cut out of their middle, like this:</p>
+				<div class="ut-title-parent">
+					<p class="ut-title" data-text="mOnster frienD" data-hearts="m_nster frien_">mOnster frienD</p>
+				</div>
+				<p>For details about how to format complex titles in your HTML, please refer to the class documentation for <a class="ut-link" href="x">ut-title</a>.</p>
+				<p>The following glyphs have a heart in their center when capitalized:</p>
+				<table>
+					<tr class="ut-stats">
+						<th>Glyph</th>
+						<th>Lowercase</th>
+						<th>Uppercase</th>
+					</tr>
+					<tr>
+						<td>A</td>
+						<td class="ut-title-basic-fore">a</td>
+						<td class="ut-title-basic-fore">A</td>
+					</tr>
+					<tr>
+						<td>B</td>
+						<td class="ut-title-basic-fore">b</td>
+						<td class="ut-title-basic-fore">B</td>
+					</tr>
+					<tr>
+						<td>D</td>
+						<td class="ut-title-basic-fore">d</td>
+						<td class="ut-title-basic-fore">D</td>
+					</tr>
+					<tr>
+						<td>O</td>
+						<td class="ut-title-basic-fore">o</td>
+						<td class="ut-title-basic-fore">O</td>
+					</tr>
+					<tr>
+						<td>P</td>
+						<td class="ut-title-basic-fore">p</td>
+						<td class="ut-title-basic-fore">P</td>
+					</tr>
+					<tr>
+						<td>Q</td>
+						<td class="ut-title-basic-fore">q</td>
+						<td class="ut-title-basic-fore">Q</td>
+					</tr>
+					<tr>
+						<td>R</td>
+						<td class="ut-title-basic-fore">r</td>
+						<td class="ut-title-basic-fore">R</td>
+					</tr>
+<!--
+					<tr>
+						<td></td>
+						<td class="ut-title-basic-fore"></td>
+						<td class="ut-title-basic-fore"></td>
+					</tr>
+-->
+				</table>
+				<p>To use this font in "font-family" declarations, use "Monster Friend Fore" for the foreground version, or "Monster Friend Back" for the background version.</p>
+				<p>Reccomended fallback fonts are as follows:</p>
+				<ul>
+					<li>Monster Friend Fore (for Monster Friend Back)</li>
+					<li>Monster Friend Back (for Monster Friend Fore)</li>
+					<li>Arial</li>
+					<li>sans-serif</li>
+				</ul>
+				<p>The following classes make use of this font as their default:</p>
+				<ul>
+					<li><a class="ut-link" href="../../classes/title">ut-title</a></li>
+					<li><a class="ut-link" href="../../classes/title_basic_fore">ut-title-basic-fore</a> (Fore only)</li>
+					<li><a class="ut-link" href="../../classes/title_basic_back">ut-title-basic-back</a> (Back only)</li>
+				</ul>
 			</section>
 		</main>
 	</article>
