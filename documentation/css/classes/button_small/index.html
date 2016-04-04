@@ -12,19 +12,37 @@
 			<h1 class="ut-title" data-text="dOcumentation - class" data-hearts="d_">dOcumentation - class</h1>
 		</header>
 		<section>
-			<h2 class="ut-heading">[class]</h2>
-			<p>[class] represents [thing]. It is used [where in ut].</p>
-			<p class="[class]">It looks like this.</p>
+			<h2 class="ut-heading">ut-button-small</h2>
+			<p>ut-button-small represents the same thing that <a class="ut-link" href="../button">ut-button</a> does, except it is more compact than the game-accurate ut-button.</p>
+			<div>
+				<p class="ut-button-small">It looks like this.</p>
+			</div>
+			<div>
+				<p class="ut-action ut-button-small ut-link">It should typically be used in conjunction with <a class="ut-link" href="../action">ut-action</a> and <a class="ut-link" href="../link">ut-link</a>.</p>
+			</div>
 			<p>The CSS is as follows:</p>
 			<p>
 				<code>
-					[lines]
+					.ut-button-small {<br />
+					&nbsp;&nbsp;display:inline-block;<br />
+					&nbsp;&nbsp;text-transform:uppercase;<br />
+					&nbsp;&nbsp;text-align:right;<br />
+					&nbsp;&nbsp;border:0.1em solid;<br />
+					&nbsp;&nbsp;#f68228;<br />
+					&nbsp;&nbsp;text-decoration:none;<br />
+					&nbsp;&nbsp;padding:0.1em;<br />
+					&nbsp;&nbsp;margin-top:initial;<br />
+					&nbsp;&nbsp;margin-bottom:0.1em;<br />
+					&nbsp;&nbsp;font-size:1em;<br />
+					}<br />
+					.ut-button-small:link, .ut-button-small:visited, .ut-button-small:hover, .ut-button-small:active {<br />
+					&nbsp;&nbsp;text-decoration:none;<br />
+					}<br />
+					.ut-button-small:hover, .ut-button-small:active {<br />
+					&nbsp;&nbsp;border-color:#fff434;<br />
+					}
 				</code>
 			</p>
-			<p>This class makes use of the following fonts:</p>
-			<ul>
-				<li><a class="ut-link" href="../../fonts/x">x</a></p>
-			</ul>
 		</section>
 	</article>
 </body>

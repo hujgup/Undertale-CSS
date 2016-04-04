@@ -12,19 +12,44 @@
 			<h1 class="ut-title" data-text="dOcumentation - class" data-hearts="d_">dOcumentation - class</h1>
 		</header>
 		<section>
-			<h2 class="ut-heading">[class]</h2>
-			<p>[class] represents [thing]. It is used [where in ut].</p>
-			<p class="[class]">It looks like this.</p>
+			<h2 class="ut-heading">ut-title</h2>
+			<p>ut-title represents titles that should look like the Undertale logo.</p>
+			<p class="ut-title">It looks like this.</p>
+			<p>ut-title relies on additional HTML code to function fully.</p>
+			<p><span class="ut-chara">ALERT:</span> All of the following features will break unless you enclose your title element inside a block-level element where either its class is <a class="ut-link" href="../title_parent">ut-title-parent</a>, or it has the CSS property "<code>position:relative;</code>" set.</p>
+			<p>To overlay white text on the element, add the attribute "data-text" to your title element and copy the element's text content into it.</p>
+			<div class="ut-title-parent">
+				<p class="ut-title" data-text="Like so">Like so</p>
+			</div>
+			<p>To fill in the hearts behind certain letters, add the attribute "data-hearts" to your title element, copy the element's text content into it, and at the point where you want a heart fill, use a different glyph. Cut the text short after the last heart in the title.</p>
+			<div class="ut-title-parent">
+				<p class="ut-title" data-text="Like sO" data-hearts="Like s_">Like sO</p>
+			</div>
+			<p>Letters that may have hearts in them are listed in the <a class="ut-link" href="../../fonts/mfriend">Monster Friend font documentation</a>.</p>
 			<p>The CSS is as follows:</p>
 			<p>
 				<code>
-					[lines]
+					.ut-title {<br />
+					&nbsp;&nbsp;color:#888;<br />
+					&nbsp;&nbsp;font-family:"<a class="ut-link" href="../../fonts/mfriend">Monster Friend Back</a>","<a class="ut-link" href="../../fonts/mfriend">Monster Friend Fore</a>",Arial,sans-serif;<br />
+					&nbsp;&nbsp;font-size:2.35em;<br />
+					}<br />
+					.ut-title::before, .ut-title::after {<br />
+					&nbsp;&nbsp;font-family:"<a class="ut-link" href="../../fonts/mfriend">Monster Friend Fore</a>","<a class="ut-link" href="../../fonts/mfriend">Monster Friend Back</a>",Arial,sans-serif;<br />
+					&nbsp;&nbsp;position:absolute;<br />
+					&nbsp;&nbsp;left:0;<br />
+					&nbsp;&nbsp;top:0;<br />
+					}<br />
+					.ut-title::before {<br />
+					&nbsp;&nbsp;color:#e90111;<br />
+					&nbsp;&nbsp;content:attr(data-hearts);<br />
+					}<br />
+					.ut-title::after {<br />
+					&nbsp;&nbsp;color:white;<br />
+					&nbsp;&nbsp;content:attr(data-text);<br />
+					}
 				</code>
 			</p>
-			<p>This class makes use of the following fonts:</p>
-			<ul>
-				<li><a class="ut-link" href="../../fonts/x">x</a></p>
-			</ul>
 		</section>
 	</article>
 </body>
